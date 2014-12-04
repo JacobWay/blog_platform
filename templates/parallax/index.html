@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Parallax Demo</title>
+        <link type="text/css" rel="stylesheet" href="/static/parallax/main.css">
+    </head>
+
+    <body>
+        <div id="bubble3">
+        </div>
+        <div id="bubble1">
+        </div>
+        <div id="fish"></div>        
+
+        <script>
+            // Create cross browser requestAnimationFrame method:
+            window.requestAnimationFrame = window.requestAnimationFrame
+            || window.mozRequestAnimationFrame
+            || window.webkitRequestAnimationFrame
+            || window.msRequestAnimationFrame
+            || function(f){setTimeout(f, 1000/60);};
+
+            var bubble1 = document.getElementById('bubble1');
+            var bubble3 = document.getElementById('bubble3');
+            var fish = document.getElementById('fish');
+
+            var scrollHeight = document.body.scrollHeight; // height of entire document
+            var windowHeight = window.innerHeight; // height of browser window
+
+            function parallaxBubbles(){
+                var scrollTop = window.pageYOffset; // get number of pixels document has scrolled vertically
+                var scrollAmount = (scrollTop / (scrollHeight - windowHeight)) * 100; // get amount scrolled (in %)
+                bubble1.style.top = -scrollTop * .2 + 'px'; // move bubble1 at 20% of scroll speed
+                bubble3.style.top = -scrollTop * .5 + 'px'; // move bubble3 at 50% of scroll speed
+                fish.style.left = scrollAmount + '%';
+            }
+
+            window.addEventListener('scroll', function(){ // on page scroll
+                requestAnimationFrame(parallaxBubbles); // call parallaxbubbles() on next available screen paint
+            }, false);
+
+        </script>
+
+    </body>
+
+</html>

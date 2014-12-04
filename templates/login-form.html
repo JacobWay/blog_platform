@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>登入</h2>
+  <form method="post">
+    <table>
+      <tr>
+        <td class="label">
+          用户名
+        </td>
+        <td>
+          <input type="text" name="username" value="{{username}}">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">
+          密码
+        </td>
+        <td>
+          <input type="password" name="password" value="">
+        </td>
+      </tr>
+    </table>
+
+    <div class="error">
+      {{error}}
+    </div>
+
+    <input type="submit" value="登入">
+  </form>
+
+{% endblock %}

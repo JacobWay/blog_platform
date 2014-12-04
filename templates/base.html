@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+
+  <title>危强的博客平台</title>
+</head>
+
+<body>
+  <a href="/blog" class="main-title">
+    危强的博客平台
+  </a>
+
+  <div class="login-area">
+    {% if user %}
+      <a class="login-link" href="/blog/">博客空间</a>
+      |
+      <a class="login-link" href="/blog/newpost">发文</a>
+      |
+      {{user.name}} (<a class="login-link" href="/logout">退出</a>)
+    {% else %}
+      <a class="login-link" href="/login">登入</a>
+      |
+      <a class="login-link" href="/signup">登记</a>
+    {% endif %}
+  </div>
+
+  <div id="content">
+  {% block content %}
+  {% endblock %}
+  </div>
+</body>
+
+</html>
+

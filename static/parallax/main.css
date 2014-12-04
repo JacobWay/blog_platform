@@ -1,0 +1,23 @@
+body {
+    background: navy url(/static/parallax/images/deepsea.jpg) top center no-repeat fixed;
+    background-size: cover;
+    height: 2000px;
+}
+
+#bubble1, #bubble3, #fish{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: -1;
+    background: url(/static/parallax/images/bubbles1.png) 5% 50% no-repeat;
+}
+
+#bubble3 {
+    background: url(/static/parallax/images/bubbles3.png) 95% 90% no-repeat;
+}
+
+#fish {
+    background: url(/static/parallax/images/fish.png) left 90% no-repeat;
+}
